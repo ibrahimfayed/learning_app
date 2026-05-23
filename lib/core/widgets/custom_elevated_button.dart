@@ -10,12 +10,16 @@ class CustomElevatedButton extends StatelessWidget {
   final String label;
   final Color? backgroundColor;
   final double? radius;
+  final EdgeInsetsGeometry? innerPadding;
+  final EdgeInsetsGeometry? outerPadding;
   final void Function() onTap;
   final TextStyle? textStyle;
   final bool isStadiumBorder;
 
   const CustomElevatedButton({
     this.prefixIcon,
+    this.innerPadding,
+    this.outerPadding,
     this.textStyle,
     this.isStadiumBorder = true,
     this.backgroundColor,
@@ -27,31 +31,34 @@ class CustomElevatedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        shape: isStadiumBorder
-            ? const StadiumBorder()
-            : RoundedRectangleBorder(borderRadius: BorderRadius.circular(17.r)),
-        backgroundColor: backgroundColor ?? ColorManager.primary,
-        padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 14.h),
-      ),
-      onPressed: onTap,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          prefixIcon ?? const SizedBox(),
-          SizedBox(width: 24.w),
-          Text(
-            label,
-            style:
-                textStyle ??
-                getMediumStyle(
-                  color: ColorManager.white,
-                ).copyWith(fontSize: FontSize.s20),
-          ),
-          SizedBox(width: 27.w),
-          suffixIcon ?? const SizedBox(),
-        ],
+    return Padding(
+      padding: outerPadding ?? EdgeInsets.zero,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          shape: isStadiumBorder
+              ? const StadiumBorder()
+              : RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius ?? 17.r)),
+          backgroundColor: backgroundColor ?? ColorManager.primary,
+          padding: innerPadding ?? EdgeInsets.symmetric(horizontal: 15.w, vertical: 14.h),
+        ),
+        onPressed: onTap,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            prefixIcon ?? const SizedBox(),
+            SizedBox(width: 24.w),
+            Text(
+              label,
+              style:
+                  textStyle ??
+                  getMediumStyle(
+                    color: ColorManager.white,
+                  ).copyWith(fontSize: FontSize.s20),
+            ),
+            SizedBox(width: 27.w),
+            suffixIcon ?? const SizedBox(),
+          ],
+        ),
       ),
     );
   }

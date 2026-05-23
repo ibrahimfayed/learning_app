@@ -1,5 +1,6 @@
 class ImageAssets {
   static const String splashLogo = 'assets/images/splash_logo.png';
+  static const String semiCircle = 'assets/images/semi_circle.png';
  // static const String categoryHomeImage = '$_imagePath/category.jpg';
 }
 
