@@ -39,6 +39,7 @@ dependencies:
   flutter_screenutil: ^5.9.3
   auto_size_text: ^3.0.0
   flutter_svg: ^2.3.0
+  shared_preferences: ^2.5.5
   
 
 dev_dependencies:

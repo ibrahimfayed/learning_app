@@ -15,16 +15,16 @@ TextStyle getLightStyle({double? fontSize, required Color color}) =>
     _getTextStyle(fontSize ?? FontSize.s12, FontWeightManager.light, color);
 
 TextStyle getRegularStyle({double? fontSize, required Color color}) =>
-    _getTextStyle(fontSize ?? FontSize.s12, FontWeightManager.regular, color);
+    _getTextStyle(fontSize ?? FontSize.s18, FontWeightManager.regular, color);
 
 TextStyle getMediumStyle({double? fontSize, required Color color}) =>
     _getTextStyle(fontSize ?? FontSize.s12, FontWeightManager.medium, color);
 
 TextStyle getSemiBoldStyle({double? fontSize, required Color color}) =>
-    _getTextStyle(fontSize ?? FontSize.s12, FontWeightManager.semiBold, color);
+    _getTextStyle(fontSize ?? FontSize.s15, FontWeightManager.semiBold, color);
 
 TextStyle getBoldStyle({double? fontSize, required Color color}) =>
-    _getTextStyle(fontSize ?? FontSize.s12, FontWeightManager.bold, color);
+    _getTextStyle(fontSize ?? FontSize.s24, FontWeightManager.bold, color);
 
 TextStyle getTextWithLine() => TextStyle(
   color: ColorManager.primary,

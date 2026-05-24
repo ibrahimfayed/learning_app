@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text("Login"),);
+    return Scaffold(
+      body: Center(
+        child: InkWell(
+          onTap: () async{
+            final prefs = await SharedPreferences.getInstance();
+            prefs.setBool('onboarding', false);
+          },
+          child: const Text("Login"),
+        ),
+      ),
+    );
   }
 }

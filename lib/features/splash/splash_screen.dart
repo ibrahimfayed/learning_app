@@ -5,6 +5,7 @@ import 'package:learning_app/core/resources/color_manager.dart';
 import 'package:learning_app/core/resources/styles_manager.dart';
 import 'package:learning_app/core/routes/routes.dart';
 import 'package:learning_app/core/widgets/custom_elevated_button.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -290,8 +291,12 @@ class _SplashScreenState extends State<SplashScreen>
           outerPadding: EdgeInsets.symmetric(horizontal: 100.w),
           //innerPadding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 14.h),
           label: 'GET STARTED',
-          onTap: () {
-            Navigator.of(context).pushReplacementNamed(Routes.login);
+          onTap: () async {
+            final prefs = await SharedPreferences.getInstance();
+            final onBoarding = prefs.getBool('onboarding') ?? false;
+            Navigator.of(context).pushReplacementNamed(
+              onBoarding ? Routes.login : Routes.onBoarding,
+            );
           },
           backgroundColor: ColorManager.white,
           textStyle: getMediumStyle(

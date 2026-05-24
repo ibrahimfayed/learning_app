@@ -1,7 +1,10 @@
 class ImageAssets {
-  static const String splashLogo = 'assets/images/splash_logo.png';
-  static const String semiCircle = 'assets/images/semi_circle.png';
- // static const String categoryHomeImage = '$_imagePath/category.jpg';
+  static const String _imagePath = 'assets/images';
+  static const String splashLogo = '$_imagePath/splash_logo.png';
+  static const String semiCircle = '$_imagePath/semi_circle.png';
+  static const String firstOnBoardingImg = '$_imagePath/first_on_boarding_img.png';
+  static const String secondOnBoardingImg = '$_imagePath/second_on_boarding_img.png';
+  static const String thirdOnBoardingImg = '$_imagePath/third_on_boarding_img.png';
 }
 
 class SvgAssets {
